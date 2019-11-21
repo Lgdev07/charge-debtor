@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    List of Debtors
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="offset-1 col-10 list-div">
+        <h1>Charge Debtors</h1>
+        <a id="add-link" href="createdebtor/">
+            <div class="col-2 add-div">
+                <i class="fas fa-plus"></i> New Debtor
+            </div>
+        </a>    
+        <div class="col-7 search-div">
+            <form id="search-form" method="get">
+                <input class="form-control" type="text" 
+                       name="search" id="search" 
+                       placeholder="Enter Debtor Name to Search"
+                       value="{{ request.GET.search }}">
+                <i class="fas fa-search" id="search-btn"></i>
+            </form>
+        </div>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}    
+
+
+        <table class="table table-hover">
+            {% if debtors %}
+                
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Value Owned</th>
+                <th scope="col">Due Date</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {% for debtor in debtors %}
+            <tr>
+                <th scope="row">{{ debtor.id }}</th>
+                <td><a href="debtor/{{ debtor.id }}">{{ debtor.name }}</a></td>
+                <td>{{ debtor.email }}</td>
+                <td>{{ debtor.amount_owed }}</td>
+                <td>{{ debtor.due_date }}</td>
+                <td class="icons"><a href="sendmail/{{ debtor.id }}">
+                    <i class="fas fa-paper-plane"></i>
+                </a></td>
+                <td class="icons"><a href="deletedebtor/{{ debtor.id }}">
+                    <i class="fas fa-trash"></i>
+                </a></td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+            {% else %}
+
+            {% endif %}
+          </table>
+
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% endif %}
+            
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a>
+            </li>
+    
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+            {% endif %}
+        </ul>
+
+    </div>
+{% endblock%}
+    

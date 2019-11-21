@@ -1,0 +1,228 @@
+/* Fonts */
+
+@font-face {
+    font-family: "Calamity-Bold";
+    src: url("Calamity-Bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Calamity-Regular";
+    src: url("Calamity-Regular.woff") format('woff');
+}
+
+/* Main */
+
+
+body {
+    font-family: 'Calamity-Bold', sans-serif !important;
+}
+
+.content-section {
+    margin: 20px;
+}
+
+.form-gorup{
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.container-fluid .row{
+    margin: 0;
+}
+
+/* Navbar */
+
+.navbar {
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.navbar-nav {
+    margin: auto;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav a.nav-link {
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.nav-bar-account-img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+/* Botão de Adicionar */
+
+#add-link {
+    text-decoration: none;
+}
+
+.add-div {
+    background-color: #3476e2;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+.fas.fa-plus {
+    color: #fff;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+/* Botão de Enviar Email e Excluir */
+
+.icons {
+    width: 10px;
+}
+
+/* Search */
+
+.fas.fa-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.search-div {
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-table
+}
+
+/* Filtro */
+
+.filter-div {
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+#filter {
+    display: inline-block;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.caret{
+    margin-left: 8px;
+}
+
+#dropdownMenuOffset{
+    right: -180px;
+    top: 0px;
+    position: absolute;
+}
+
+/* Lista de Tarefas */
+
+.list-div {
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.task-item {
+    list-style: none;
+    font-size: 20px;
+    height: 50px;
+    padding-top: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.task-item.done {
+    background-color: #ccc;
+}
+
+.fas.fa-trash, .fas.fa-edit, .fas.fa-check {
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    float: right;
+}
+
+.fas.fa-trash {
+    color: #db1e47;
+}
+
+.fas.fa-edit {
+    color: #13c43f;
+}
+
+.fas.fa-check {
+    color: #ccc;
+}
+.done .fas.fa-check {
+    color: #3476e2;
+}
+
+/* Rodapé */
+
+footer {
+    background-color: #333;
+    height: 100px;
+    border-top: 2px solid #202020;
+    border-bottom: 2px solid #202020;
+}
+
+footer p {
+    color: #f5f5f5;
+    text-align: center;
+    top: 40%;
+    position: relative;
+}
+
+/* Messages */
+
+ul.messages {
+    padding: 0;
+}
+
+ul.messages li {
+    list-style: none;
+}
+
+/* Login */
+
+.auth-card {
+    margin-bottom: 30px;
+}
+
+/* New Debtor */
+
+#create-debtor {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Profile */
+
+.account-img {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.custom-file-label {
+    position: absolute;
+    top: 50px;
+}
