@@ -15,7 +15,7 @@
                 <i class="fas fa-plus"></i> New Debtor
             </div>
         </a>    
-        <div class="col-7 search-div">
+        <div class="col-6 search-div">
             <form id="search-form" method="get">
                 <input class="form-control" type="text" 
                        name="search" id="search" 
@@ -24,6 +24,20 @@
                 <i class="fas fa-search" id="search-btn"></i>
             </form>
         </div>
+        
+        <div class="col-2 add-div" id="paid-debtors">
+            <form method="get">
+                <i class="fas fa-thumbs-up"></i>
+                <input type="submit" id="filter-paid" value="Paid" name='paid'>
+            </form> 
+        </div>
+
+        <div class="col-2 add-div" id="not-paid-debtors">
+            <form method="get">
+                <i class="fas fa-thumbs-down"></i>
+                <input type="submit" id="filter-paid" value="Not Paid" name='not-paid'>
+            </form> 
+        </div>       
 
         {% if messages %}
         <ul class="messages">
@@ -32,7 +46,6 @@
             {% endfor %}
         </ul>
         {% endif %}    
-
 
         <table class="table table-hover">
             {% if debtors %}
@@ -57,7 +70,7 @@
                 <td>{{ debtor.email }}</td>
                 <td>{{ debtor.amount_owed }}</td>
                 <td>{{ debtor.due_date }}</td>
-                <td class="icons"><a href="sendmail/{{ debtor.id }}">
+                <td class="icons"><a href="action_sendmail/{{ debtor.id }}">
                     <i class="fas fa-paper-plane"></i>
                 </a></td>
                 <td class="icons"><a href="deletedebtor/{{ debtor.id }}">
@@ -65,7 +78,6 @@
                 </a></td>
             </tr>
             {% endfor %}
-
             </tbody>
             {% else %}
 

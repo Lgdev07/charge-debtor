@@ -4,6 +4,14 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
 def register(request):
+    """User registration function
+    
+    Arguments:
+        request {get} -- HTTP method GET
+    
+    Returns:
+        bool -- redirect to login if success or render the registration page
+    """
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -17,6 +25,14 @@ def register(request):
 
 @login_required
 def profile(request):
+    """Profile update function
+    
+    Arguments:
+        request {get} -- HTTP method GET
+    
+    Returns:
+        bool -- redirect to profile if success or render the profile page
+    """    
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
